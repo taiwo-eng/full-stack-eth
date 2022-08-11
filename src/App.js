@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState} from "react";
 import {ethers} from "ethers";
-import Greeter from "./artifacts/contracts/Greeter.sol";
+import Greeter from './artifacts/contracts/Greeter.sol/Greeter.json'
 
 const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
@@ -26,9 +26,7 @@ function App() {
   }
 
   async function setGreeting() {
-    if (!greeting) {
-      return;
-    }
+    if (!greeting) return;
     if (typeof window.ethereum !== "undefined") {
       await requestAccount();
       const provider = new ethers.providers.Web3Provider(window.ethereum);
